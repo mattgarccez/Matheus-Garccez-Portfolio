@@ -322,7 +322,7 @@ body {
 .experience-timeline::before {
     content: "";
     position: absolute;
-    left: 120px;
+    left: 175px;
     top: 0;
     bottom: 0;
     width: 1px;
@@ -331,7 +331,7 @@ body {
 
 .experience-item {
     display: grid;
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 150px 1fr;
     gap: 50px;
     position: relative;
     padding-bottom: 55px;
@@ -342,6 +342,7 @@ body {
     font-size: 0.8rem;
     line-height: 1.5;
     text-align: right;
+    white-space: nowrap;
 }
 
 .experience-content {
@@ -349,9 +350,10 @@ body {
 }
 
 .experience-content::before {
+    display: none;
     content: "";
     position: absolute;
-    left: -57px;
+    left: -25px;
     top: 5px;
     width: 7px;
     height: 7px;
