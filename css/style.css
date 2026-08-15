@@ -222,7 +222,13 @@ body {
     font-weight: 500;
     margin-bottom: 35px;
 }
-
+.project-group-title {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-top: 45px;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
 .academic-list {
     display: flex;
     flex-direction: column;
