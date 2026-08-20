@@ -110,6 +110,21 @@ body {
     border-color: #666666;
     transform: translateY(-4px);
 }
+.focus-card:hover *,
+
+.project-card:hover *,
+
+.paper-card:hover *,
+
+.degree-card:hover *,
+
+.postgraduate-card:hover *,
+
+.education-featured:hover *,
+
+.technical-education:hover * {
+
+color: #E2E2E2;}
 
 .focus-card h3 {
     font-size: 1.35rem;
@@ -394,6 +409,7 @@ body {
 
 .education-group {
     margin-bottom: 90px;
+    margin-top: 70px;
 }
 
 .education-group-title {
@@ -445,10 +461,17 @@ body {
 
 .degree-card {
     padding: 28px;
+    width: 60%;
     border: 1px solid #2a2a2a;
     background-color: #101010;
 }
+.degree-card-featured {
 
+width: 73%;
+
+min-height: 120px;
+
+}
 .degree-card h4 {
     font-size: 1.05rem;
     font-weight: 500;
@@ -456,13 +479,13 @@ body {
 }
 
 .technical-education {
-    margin-top: 20px;
     padding: 28px;
+    width: 60%;
     border: 1px solid #2a2a2a;
     background-color: #101010;
 }
 
-.technical-education h3 {
+.technical-education h4 {
     font-size: 1.05rem;
     font-weight: 500;
 }
@@ -482,6 +505,7 @@ body {
 
 .postgraduate-card:hover,
 .degree-card:hover,
+.education-featured:hover,
 .technical-education:hover {
     border-color: #666666;
     transform: translateY(-3px);
