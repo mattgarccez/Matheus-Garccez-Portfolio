@@ -88,4 +88,4 @@ Esta seção representa a base acadêmica que antecedeu e continua apoiando este
 
 ---
 
-**Learning. Building. Evolving.**
+**Learning. Building. Evolving**
