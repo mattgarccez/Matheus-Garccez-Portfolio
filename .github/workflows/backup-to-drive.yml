@@ -1,0 +1,39 @@
+name: Backup para o Google Drive
+
+# Roda toda vez que houver push na branch principal, dentro da pasta 01-Tech.
+# Ajuste "branches" e "paths" abaixo se quiser mudar o gatilho.
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "01-Tech/**"
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar rclone
+        run: sudo apt-get update && sudo apt-get install -y rclone
+
+      - name: Configurar acesso ao Google Drive
+        run: |
+          mkdir -p ~/.config/rclone
+          cat > ~/.config/rclone/rclone.conf << EOF
+          [gdrive]
+          type = drive
+          scope = drive
+          service_account_credentials = ${{ secrets.GDRIVE_SERVICE_ACCOUNT_JSON }}
+          EOF
+
+      - name: Enviar arquivos para o Google Drive
+        run: |
+          rclone copy ./01-Tech "gdrive:" \
+            --drive-root-folder-id ${{ secrets.GDRIVE_FOLDER_ID }} \
+            --progress
+
+      - name: Confirmar backup concluído
+        run: echo "Backup enviado com sucesso para o Google Drive."
