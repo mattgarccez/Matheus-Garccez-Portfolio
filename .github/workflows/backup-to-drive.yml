@@ -22,17 +22,18 @@ jobs:
       - name: Configurar acesso ao Google Drive
         run: |
           mkdir -p ~/.config/rclone
-          cat > ~/.config/rclone/rclone.conf << EOF
+          echo '${{ secrets.GDRIVE_SERVICE_ACCOUNT_JSON }}' > ~/.config/rclone/service-account.json
+          cat > ~/.config/rclone/rclone.conf << 'EOF'
           [gdrive]
           type = drive
           scope = drive
-          service_account_credentials = ${{ secrets.GDRIVE_SERVICE_ACCOUNT_JSON }}
+          service_account_file = /home/runner/.config/rclone/service-account.json
           EOF
 
       - name: Enviar arquivos para o Google Drive
         run: |
           rclone copy ./01-Tech "gdrive:" \
-            --drive-root-folder-id ${{ secrets.GDRIVE_FOLDER_ID }} \
+            --drive-root-folder-id "${{ secrets.GDRIVE_FOLDER_ID }}" \
             --progress
 
       - name: Confirmar backup concluído
