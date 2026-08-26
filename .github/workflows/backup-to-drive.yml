@@ -1,13 +1,10 @@
 name: Backup para o Google Drive
 
-# Roda toda vez que houver push na branch principal, dentro da pasta 01-Tech.
-# Ajuste "branches" e "paths" abaixo se quiser mudar o gatilho.
+# Roda toda vez que houver push na branch principal, em qualquer arquivo do repositório.
 on:
   push:
     branches:
       - main
-    paths:
-      - "01-Tech/**"
 
 jobs:
   backup:
@@ -26,7 +23,8 @@ jobs:
 
       - name: Enviar arquivos para o Google Drive
         run: |
-          rclone copy ./01-Tech "gdrive:LBE-Backups/01-Tech" \
+          rclone copy . "gdrive:LBE-Backups" \
+            --exclude ".git/**" \
             --progress
 
       - name: Confirmar backup concluído
