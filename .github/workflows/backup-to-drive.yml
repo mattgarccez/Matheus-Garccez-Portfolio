@@ -22,7 +22,7 @@ jobs:
       - name: Configurar acesso ao Google Drive
         run: |
           mkdir -p ~/.config/rclone
-          echo "${{ secrets.RCLONE_CONFIG }}" > ~/.config/rclone/rclone.conf
+          echo '${{ secrets.RCLONE_CONFIG }}' > ~/.config/rclone/rclone.conf
 
       - name: Enviar arquivos para o Google Drive
         run: |
